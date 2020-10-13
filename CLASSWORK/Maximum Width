@@ -1,0 +1,66 @@
+import java.util.ArrayDeque;
+import java.util.Queue;
+class Node
+{
+	int key;
+	Node left = null, right = null;
+
+	Node(int key) {
+		this.key = key;
+	}
+}
+
+class Main
+{
+	public static void maxWidth(Node root)
+	{
+
+		if (root == null) {
+			return;
+		}
+		Queue<Node> queue = new ArrayDeque<>();
+		queue.add(root);
+		Node curr = null;
+		int max = 0;
+
+		// loop till queue is empty
+		while (!queue.isEmpty())
+		{
+
+			int width = queue.size();
+
+
+			if (max < width) {
+				max = width;
+			}
+
+			while (width-- > 0)
+			{
+				curr = queue.poll();
+
+				if (curr.left != null) {
+					queue.add(curr.left);
+				}
+
+				if (curr.right != null) {
+					queue.add(curr.right);
+				}
+			}
+		}
+
+		System.out.print("Maximum width is " + max);
+	}
+
+	public static void main(String[] args)
+	{
+		Node root = new Node(15);
+		root.left = new Node(10);
+		root.right = new Node(20);
+		root.left.left = new Node(8);
+		root.left.right = new Node(12);
+		root.right.left = new Node(16);
+		root.right.right = new Node(25);
+
+		maxWidth(root);
+	}
+}
