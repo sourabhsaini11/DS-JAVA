@@ -1,4 +1,4 @@
-// Data structure to store a Binary Tree node
+
 import java.util.LinkedList; 
 import java.util.Queue; 
 class Node
@@ -13,7 +13,7 @@ class Node
 
 class Main
 {
-	// Function to print all nodes of a given level from left to right
+
 	public static void printLevel(Node root)
 	{
 		if (root == null) {
