@@ -77,8 +77,6 @@ class Main
 		int[] preorder = { 1, 2, 4, 3, 5, 7, 8, 6 };
 
 		Node root = construct(inorder, preorder);
-
-		// traverse the constructed tree
 		System.out.print("Inorder  : ");
 		inorderTraversal(root);
 
