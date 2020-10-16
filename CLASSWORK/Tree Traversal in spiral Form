@@ -1,0 +1,76 @@
+
+import java.util.LinkedList; 
+import java.util.Queue; 
+import java.util.Stack; 
+
+class Node
+{
+	int key;
+	Node left = null, right = null;
+
+	Node(int key) {
+		this.key = key;
+	}
+}
+
+class Main
+{
+	public static void printLevel(Node root)
+	{
+		if (root == null) {
+			return ;
+		}
+		
+        Stack<Node> s1=new Stack<Node>();
+               Stack<Node> s2=new Stack<Node>();
+        s1.push(root);
+        while(s1.empty()!=true || s2.empty()!=true)
+        {
+            if(s1.empty()!=true)
+            {
+                int s=s1.size();
+                for(int i=0;i<s;i++){
+                    Node q=s1.pop();
+                    System.out.print(q.key);
+                    if(q.left!=null)
+                    s2.push(q.left);
+                    if(q.right!=null)
+                    s2.push(q.right);
+                }
+                System.out.println();
+            }
+            if(s2.empty()!=true)
+            {
+                int a=s2.size();
+                for(int i=0;i<a;i++){
+                    Node z=s2.pop();
+                    System.out.print(z.key);
+                     if(z.right!=null)
+                    s1.push(z.right);
+                    if(z.left!=null)
+                    s1.push(z.left);
+                   
+                }
+            }
+             System.out.println();
+        }
+                   
+
+        }
+    
+	
+
+
+	public static void main(String[] args)
+	{
+		Node root = new Node(15);
+		root.left = new Node(10);
+		root.right = new Node(20);
+		root.left.left = new Node(8);
+		root.left.right = new Node(12);
+		root.right.left = new Node(16);
+		root.right.right = new Node(25);
+
+		printLevel(root);
+	}
+}
