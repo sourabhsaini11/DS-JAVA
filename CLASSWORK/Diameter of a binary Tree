@@ -1,0 +1,37 @@
+class Node{
+	int key;
+	Node left,right;
+	public Node(int key) {
+		this.key=key;
+	}
+}
+public class TreeSize {
+	Node root;
+	TreeSize(int key){
+		root=new Node(key);
+	}
+	TreeSize(){
+		root=null;
+	}
+	int m=0;
+	 public int Height(Node node) {
+		  if (node != null) {
+			  int l=Height(node.left);
+			  int r=Height(node.right);
+			  m=Math.max(m,1+l+r);
+			  return 1+Math.max(l,r);
+		  }
+		  else
+			  return 0;
+		  }
+	
+	public static void main(String[] args) {
+		TreeSize tree=new TreeSize();
+		tree.root=new Node(1);
+		tree.root.left=new Node(2);
+		tree.root.right=new Node(3);
+		tree.root.left.left=new Node(8);
+		
+		System.out.print(tree.Height(tree.root));
+	}
+}
