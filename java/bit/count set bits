@@ -1,0 +1,15 @@
+package bits;
+//using brian kerringam's Algo
+
+public class bit1 {
+	public static void main(String[] args) { 
+		int n=5,k=3,c=0;
+		while(n>0) {
+			n=(n & (n-1));
+			c++;
+		}
+		System.out.print(c);
+
+	}
+
+}
