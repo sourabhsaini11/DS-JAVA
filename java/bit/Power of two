@@ -1,0 +1,14 @@
+package bits;
+
+public class bit1 {
+	public static void main(String[] args) { 
+		int n=16,k=3,c=0;
+		if((n&(n-1))==0) {
+			System.out.print("true");
+}
+		else
+		System.out.print("false");
+
+	}
+
+}
